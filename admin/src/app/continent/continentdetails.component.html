@@ -1,0 +1,16 @@
+<div class="container-fluid">
+	<div class="row">
+	     <div class="col-sm">
+	     	<h1><a routerLink="/continent"><i class="fa fa-angle-left" aria-hidden="true"></i></a> Continent Details</h1>
+	     </div>
+	</div>      	
+	<div class="row">
+	     <div class="col-sm">
+			<ul class="list-group" *ngFor="let continent of continents">
+			  {{continent.name}},<br/>
+
+
+			</ul>
+	     </div>
+    </div>
+</div>

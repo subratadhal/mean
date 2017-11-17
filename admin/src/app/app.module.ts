@@ -13,13 +13,18 @@ import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user/userdetails.component';
 import { LoginComponent } from './login/login.component';
 
+import { ContinentComponent } from './continent/continent.component';
+import { ContinentdetailsComponent } from './continent/continentdetails.component';
+
 export const routes = [
  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
  { path: '',            component: AppComponent },
  { path: 'dashboard',   component: DashboardComponent },
  { path: 'users',       component: UserComponent },
  { path: 'users/:id',   component: UserDetailsComponent },
- { path: 'login',       component: LoginComponent }
+ { path: 'login',       component: LoginComponent },
+ { path: 'continent',           component: ContinentComponent }
+ { path: 'continent/:id',       component: ContinentdetailsComponent }
 ]
 
 
@@ -29,7 +34,9 @@ export const routes = [
     DashboardComponent,
     UserComponent,
     UserDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    ContinentComponent,
+    ContinentdetailsComponent
   ],
   imports: [
     BrowserModule,
