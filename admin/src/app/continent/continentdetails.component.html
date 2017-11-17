@@ -8,9 +8,50 @@
 	     <div class="col-sm">
 			<ul class="list-group" *ngFor="let continent of continents">
 			  {{continent.name}},<br/>
-
-
 			</ul>
 	     </div>
     </div>
 </div>
+<div class="container-fluid">  	
+	<div class="row">
+	     <div class="col">
+			<div *ngIf="!name; else forminfo">
+				<form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Name</label>
+				    <input class="form-control" placeholder="Enter Name" formControlName="name">
+				    <small class="form-text text-muted" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}
+				    </small>
+				  </div>
+				  <div class="form-group">
+				    <label for="">Description</label>
+				    <textarea class="form-control" formControlName="description"></textarea>
+				    <small class="form-text text-muted" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.
+				    </small>
+				  </div>
+				  <div class="form-check">
+				    <label class="form-check-label">
+				      <input type="checkbox" name="validate" formControlName="validate" value="1">
+				      Check me out
+				    </label>
+				  </div>
+				  <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
+				</form>
+			</div>
+	     </div>
+	     <div class="col">
+			<ng-template #forminfo>
+			  <div class="form-container">
+			    <div class="row columns">
+			        <h1>{{ name }}</h1>
+
+			        <p>{{ description }}</p>
+			    </div>
+			  </div>
+			</ng-template>
+	     </div>
+    </div>
+</div>
+
+
+
