@@ -36,6 +36,27 @@ export class DataService {
        }
   } 
 
+  getDistrict() {
+      return this._http.get('http://localhost:3000/district/', this.setToken())
+      .map(result => this.result = result.json());
+  }
+  getSingleDistrict(id){ 
+    return this._http.get("http://localhost:3000/district/"+id, this.setToken())
+      .map(result => this.result = result.json());
+  }
+  putDistrict(object,id){
+    return this._http.put('http://localhost:3000/district/'+id, object, this.setToken())
+      .map( result => this.result = result.json());
+  }
+  addDistrict(object){
+    return this._http.post('http://localhost:3000/district/', object, this.setToken())
+      .map( result => this.result = result.json());
+  }
+  deleteDistrict(objID){
+    return this._http.delete('http://localhost:3000/district/'+objID, this.setToken())
+      .map( result => this.result = result.json());
+  }
+
   getState() {
       return this._http.get('http://localhost:3000/state/', this.setToken())
       .map(result => this.result = result.json());

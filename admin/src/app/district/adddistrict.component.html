@@ -1,0 +1,170 @@
+<div class="container-fluid light-gray">
+	<div class="row subheading">
+	     <div class="col-sm">
+	     	<a class="btn-dark btn-sm mt10 fl " routerLink="/district"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+	     	<h1 class="fl mb0">New District</h1>
+	     </div>
+	</div>      	
+	<div class="row pt15">
+		<div class="col">
+			<div class="alert alert-success" role="alert" *ngIf="successMessage;">
+			    {{successMessage}}
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="errorMessage;">
+				{{errorMessage}}
+			</div>
+		</div>      	
+	</div>
+
+	<div class="row pt15 pb15 justify-content-center">
+	     <div class="col-8 white-container">
+			<div > 
+				<form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" >
+				  <div class="form-group row">
+				    <label class="col-sm-2 col-form-label">Name</label>
+				    <div class="col-sm-3">
+					    <input 
+					    class="form-control"
+					    formControlName="name">
+					    <small class="form-text text-muted" 
+					    *ngIf="!rForm.controls['name'].valid && 
+					    rForm.controls['name'].touched">{{ titleAlert }}
+					    </small>
+					</div>  
+					<div class="col-sm-1">
+						 <button type="button" (click)="setAutomatedValue(rForm.value)" class="btn btn-info">
+						 <i class="fa fa-level-down" aria-hidden="true"></i>
+						</button>
+					</div>
+					<label class="col-sm-2 col-form-label">Density</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="density">
+					</div> 
+				  </div>
+				 <div class="form-group row">
+				    <label class="col-sm-2 col-form-label">Headquarters</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="headquarters">
+					</div>     
+				    <label class="col-sm-2 col-form-label">Sex Ratio</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="sex_ratio">
+					</div>
+				  </div>
+				  <div class="form-group row">
+				    <label class="col-sm-2 col-form-label">Image</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="image">
+					</div>     
+				    <label class="col-sm-2 col-form-label">Latitude</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="latitude">
+					</div> 
+				  </div>
+				  <div class="form-group row">   
+				    <label class="col-sm-2 col-form-label">Map</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="map">
+					</div> 
+				    <label class="col-sm-2 col-form-label">Longitude</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="longitude">
+					</div>      
+				  </div>
+				  
+				  <div class="form-group row">
+				  	<label class="col-sm-2 col-form-label">Area</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="area">
+					</div> 
+				    <label class="col-sm-2 col-form-label">Languages</label>
+					<div class="col-sm-4">
+						<input 
+						class="form-control" 
+						formControlName="languages">
+					</div>    
+				  </div>
+				  <div class="form-group row">
+				  		<label class="col-sm-2 col-form-label">District Key</label>
+					    <div class="col-sm-4">
+						    <input 
+						    class="form-control" 
+						    formControlName="district_key">
+						    <small class="form-text text-muted" 
+						    *ngIf="!rForm.controls['district_key'].valid && 
+						    rForm.controls['district_key'].touched">This field is required
+						    </small>
+						</div> 
+						<label class="col-sm-2 col-form-label">State Key</label>
+					    <div class="col-sm-4">
+						    <input 
+						    class="form-control" 
+						    formControlName="state_key">
+						    <small class="form-text text-muted" 
+						    *ngIf="!rForm.controls['state_key'].valid && 
+						    rForm.controls['state_key'].touched">This field is required
+						    </small>
+						</div> 
+						
+				  </div>
+				  
+				  <div class="form-group row">
+				  	<label class="col-sm-2 col-form-label">Country Key</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="country_key">
+					    <small class="form-text text-muted" 
+					    *ngIf="!rForm.controls['country_key'].valid && 
+					    rForm.controls['country_key'].touched">This field is required
+					    </small>
+					</div> 
+				    <label class="col-sm-2 col-form-label">Continent Key</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="continent_key">
+					    <small class="form-text text-muted" 
+					    *ngIf="!rForm.controls['continent_key'].valid && 
+					    rForm.controls['continent_key'].touched">This field is required
+					    </small>
+					</div>      
+				  </div>
+				  <div class="form-group row">
+				    <label class="col-sm-2 col-form-label">Description</label>
+				    <div class="col-sm-10">
+					    <textarea class="form-control textareaHeight" formControlName="description"></textarea>
+					</div>     
+				  </div>
+				  <div class="form-group row">
+				       <label class="col-sm-2 col-form-label"></label>
+				       <div class="col-sm-4">
+				       		<input type="submit" class="btn btn-primary expanded" value="SAVE" [disabled]="!rForm.valid">
+				       		<a routerLink="/district" class="btn btn-outline-secondary">Cancel</a>
+				       </div>
+				  </div>
+				</form>
+			</div>
+	     </div>
+	    
+    </div>
+</div>
+
+
+

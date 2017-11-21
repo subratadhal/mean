@@ -112,17 +112,7 @@
 						    formControlName="languages">
 						</div>
 				  </div>
-				  <div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Continent Key</label>
-				    <div class="col-sm-4">
-					    <input 
-					    class="form-control" 
-					    formControlName="continent_key">
-					    <small class="form-text text-muted" 
-					    *ngIf="!rForm.controls['continent_key'].valid && 
-					    rForm.controls['continent_key'].touched">This field is required
-					    </small>
-					</div>     
+				  <div class="form-group row"> 
 				    <label class="col-sm-2 col-form-label">Country Key</label>
 				    <div class="col-sm-4">
 					    <input 
@@ -132,7 +122,17 @@
 					    *ngIf="!rForm.controls['country_key'].valid && 
 					    rForm.controls['country_key'].touched">This field is required
 					    </small>
-					</div>     
+					</div>  
+					<label class="col-sm-2 col-form-label">Continent Key</label>
+				    <div class="col-sm-4">
+					    <input 
+					    class="form-control" 
+					    formControlName="continent_key">
+					    <small class="form-text text-muted" 
+					    *ngIf="!rForm.controls['continent_key'].valid && 
+					    rForm.controls['continent_key'].touched">This field is required
+					    </small>
+					</div>    
 				  </div>
 				  <div class="form-group row">
 				    <label class="col-sm-2 col-form-label">Description</label>

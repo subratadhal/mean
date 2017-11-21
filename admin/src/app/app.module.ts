@@ -23,6 +23,10 @@ import { StateComponent } from './state/state.component';
 import { StatedetailsComponent } from './state/statedetails.component';
 import { AddStateComponent } from './state/addstate.component';
 
+import { DistrictComponent } from './district/district.component';
+import { DistrictdetailsComponent } from './district/districtdetails.component';
+import { AddDistrictComponent } from './district/adddistrict.component';
+
 export const routes = [
  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
  { path: '',            component: AppComponent },
@@ -36,9 +40,11 @@ export const routes = [
  { path: 'country/:id',         component: CountrydetailsComponent },
  { path: 'state',             component: StateComponent },
  { path: 'state/:id',         component: StatedetailsComponent },
- { path: 'newstate',          component: AddStateComponent }
+ { path: 'newstate',          component: AddStateComponent },
+ { path: 'district',          component: DistrictComponent },
+ { path: 'district/:id',      component: DistrictdetailsComponent },
+ { path: 'newdistrict',       component: AddDistrictComponent }
 ]
-
 
 @NgModule({
   declarations: [
@@ -53,7 +59,10 @@ export const routes = [
     CountrydetailsComponent,
     StateComponent,
     StatedetailsComponent,
-    AddStateComponent
+    AddStateComponent,
+    DistrictComponent,
+    DistrictdetailsComponent,
+    AddDistrictComponent
   ],
   imports: [
     BrowserModule,
@@ -68,3 +77,4 @@ export const routes = [
 export class AppModule { }
 //https://coursetro.com/posts/code/59/Angular-4-Event-Binding
 //https://coursetro.com/courses/19/Learn-Angular-5-from-Scratch---Angular-5-Tutorial?utm_source=in_article&utm_campaign=article&utm_medium=Learn+Angular+5+from+Scra
+//flag http://flagpedia.net/index
