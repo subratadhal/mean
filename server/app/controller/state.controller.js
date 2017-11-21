@@ -37,6 +37,7 @@ exports.editState = function(req,res){
           var data = {
                 name: req.body.name == undefined ?  doc.name : req.body.name,
                 area: req.body.area == undefined ?  doc.area : req.body.area,
+                districts: req.body.districts == undefined ?  doc.districts : req.body.districts,
                 image: req.body.image == undefined ?  doc.image : req.body.image,
                 capital: req.body.capital == undefined ?  doc.capital : req.body.capital,
                 state_count: req.body.state_count == undefined ?  doc.state_count : req.body.state_count,
@@ -73,6 +74,7 @@ exports.postState = function(req,res){
       name: req.body.name,
       image: req.body.image,
       capital: req.body.capital,
+      districts: req.body.districts,
       description: req.body.description,
       density: req.body.density,
       sex_ratio: req.body.sex_ratio,

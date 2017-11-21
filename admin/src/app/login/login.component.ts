@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit{
   users: any;
   loginForm: FormGroup;
   token: any;
-  email: any;
+  //email: any;
   
 
   constructor(private fb: FormBuilder, private service:DataService, private route: ActivatedRoute,  private router: Router) {
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit{
       email : this.loginForm.value.email,
       password  : this.loginForm.value.password
     };
-    this.email = this.loginForm.value.email
+    //this.email = this.loginForm.value.email;
 
     this.service.postAuth( JSON.stringify(obj) )
     .subscribe(res =>{ this.returnAuth(this.token = res) });   

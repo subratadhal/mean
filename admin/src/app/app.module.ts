@@ -16,6 +16,13 @@ import { LoginComponent } from './login/login.component';
 import { ContinentComponent } from './continent/continent.component';
 import { ContinentdetailsComponent } from './continent/continentdetails.component';
 
+import { CountryComponent } from './country/country.component';
+import { CountrydetailsComponent } from './country/countrydetails.component';
+
+import { StateComponent } from './state/state.component';
+import { StatedetailsComponent } from './state/statedetails.component';
+import { AddStateComponent } from './state/addstate.component';
+
 export const routes = [
  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
  { path: '',            component: AppComponent },
@@ -23,8 +30,13 @@ export const routes = [
  { path: 'users',       component: UserComponent },
  { path: 'users/:id',   component: UserDetailsComponent },
  { path: 'login',       component: LoginComponent },
- { path: 'continent',           component: ContinentComponent }
- { path: 'continent/:id',       component: ContinentdetailsComponent }
+ { path: 'continent',           component: ContinentComponent },
+ { path: 'continent/:id',       component: ContinentdetailsComponent },
+ { path: 'country',             component: CountryComponent },
+ { path: 'country/:id',         component: CountrydetailsComponent },
+ { path: 'state',             component: StateComponent },
+ { path: 'state/:id',         component: StatedetailsComponent },
+ { path: 'newstate',          component: AddStateComponent }
 ]
 
 
@@ -36,7 +48,12 @@ export const routes = [
     UserDetailsComponent,
     LoginComponent,
     ContinentComponent,
-    ContinentdetailsComponent
+    ContinentdetailsComponent,
+    CountryComponent,
+    CountrydetailsComponent,
+    StateComponent,
+    StatedetailsComponent,
+    AddStateComponent
   ],
   imports: [
     BrowserModule,
@@ -49,3 +66,5 @@ export const routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//https://coursetro.com/posts/code/59/Angular-4-Event-Binding
+//https://coursetro.com/courses/19/Learn-Angular-5-from-Scratch---Angular-5-Tutorial?utm_source=in_article&utm_campaign=article&utm_medium=Learn+Angular+5+from+Scra

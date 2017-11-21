@@ -5,23 +5,27 @@ import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'continentdetails',
-  templateUrl: './continentdetails.component.html'
+  selector: 'countrydetails',
+  templateUrl: './countrydetails.component.html'
 })
 
-export class ContinentdetailsComponent implements OnInit{
+export class CountrydetailsComponent implements OnInit{
   rForm: FormGroup;
   post:any;                     // A property for our submitted form
-  description:string = '';
+
   name:string = '';
   area:string = '';
-  country_count:string = '';
+  image:string = '';
+  flag:string = '';
+  capital:string = '';
   continent_key:string = '';
+  country_key:string = '';
+  description:string = '';
   titleAlert:string = 'This field is required';
 
-  continents: any;
-  resultContinent: any;
-  continentsID:number;
+  country: any;
+  resultCountry: any;
+  countryID:number;
 
   successMessage:any;
   errorMessage:any;
@@ -37,41 +41,32 @@ export class ContinentdetailsComponent implements OnInit{
   createForm() {
         this.rForm = this.fb.group({
           'name' : [null, Validators.required],
-          'area' : [null, Validators.required],
-          'country_count' : [null, Validators.required],
+          'area' : [null],
+          'image' : [null],
+          'flag' : [null],
+          'capital' : [null],
           'continent_key' : [null, Validators.required],
+          'country_key' : [null, Validators.required],
           'description' : [null],
           'validate' : ''
         });
   };
   ngOnInit() {
-    this.rForm.get('validate').valueChanges.subscribe(
-
-      (validate) => {
-
-          if (validate == '1') {
-              this.rForm.get('name').setValidators([Validators.required, Validators.minLength(3)]);
-              this.titleAlert = 'You need to specify at least 3 characters';
-          } else {
-              this.rForm.get('name').setValidators(Validators.required);
-          }
-          this.rForm.get('name').updateValueAndValidity();
-
-      });
-
-  	  //Get Continent
+   	  //Get Continent
       this.route.params.subscribe((params: Params) => {
-        this.continentsID = params['id']; 
+        this.countryID = params['id']; 
       });
-      this.service.getSingleContinent(this.continentsID)
-           //.subscribe(res => this.users = res );
+      this.service.getSingleCountry(this.countryID)
         .subscribe(res => {
-           this.continents = res;
-           this.rForm.controls['name'].patchValue(this.continents.name);
-           this.rForm.controls['area'].patchValue(this.continents.area);
-           this.rForm.controls['country_count'].patchValue(this.continents.country_count);
-           this.rForm.controls['description'].patchValue(this.continents.description);
-           this.rForm.controls['continent_key'].patchValue(this.continents.continent_key);
+           this.country = res;
+           this.rForm.controls['name'].patchValue(this.country.name);
+           this.rForm.controls['area'].patchValue(this.country.area);
+           this.rForm.controls['image'].patchValue(this.country.image);
+           this.rForm.controls['flag'].patchValue(this.country.flag);
+           this.rForm.controls['capital'].patchValue(this.country.capital);
+           this.rForm.controls['description'].patchValue(this.country.description);
+           this.rForm.controls['continent_key'].patchValue(this.country.continent_key);
+           this.rForm.controls['country_key'].patchValue(this.country.country_key);
            },
            error => {
               console.log(error);
@@ -83,20 +78,26 @@ export class ContinentdetailsComponent implements OnInit{
   addPost(post) {
     this.name = post.name;
     this.area = post.area;
-    this.country_count = post.country_count;
+    this.image = post.image;
+    this.flag = post.flag;
+    this.capital = post.capital;
     this.description = post.description;
     this.continent_key = post.continent_key;
+    this.country_key = post.country_key;
     
     let obj={
       name : post.name,
       area : post.area,
-      country_count : post.country_count,
+      image : post.image,
+      flag : post.flag,
+      capital : post.capital,
       description : post.description,
-      continent_key : post.continent_key
+      continent_key : post.continent_key,
+      country_key : post.country_key
     };
 
-    this.service.putContinent( JSON.stringify(obj), this.continentsID )
-    .subscribe(res =>{ this.resultContinentFn(this.resultContinent = res ) });   
+    this.service.putCountry( JSON.stringify(obj), this.countryID )
+    .subscribe(res =>{ this.resultContinentFn(this.resultCountry = res ) });   
     
   }
 

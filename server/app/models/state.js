@@ -10,6 +10,7 @@ var StateSchema = new mongoose.Schema({
   },
   image: String,
   density: String,
+  districts: String,
   capital: String,
   sex_ratio: String,
   languages: String,

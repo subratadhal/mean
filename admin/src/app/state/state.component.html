@@ -1,0 +1,73 @@
+<div class="container-fluid">
+	<div class="row subheading">
+	    <div class="col-sm">
+	     	<h1 class="fl mb0">States</h1> 
+	     	<a routerLink="/newstate" class="btn btn-success btn-sm mt10 fr">
+	     		<i class="fa fa-plus-circle" aria-hidden="true"></i> Add New</a>
+	    </div>
+	</div>
+	<div class="row pt15">
+		<div class="col">
+			<div class="alert alert-success" role="alert" *ngIf="successMessage1;">
+			    {{successMessage1}}
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="errorMessage1;">
+				{{errorMessage1}}
+			</div>
+		</div>      	
+	</div>
+	<div class="row pt15">
+	     <div class="col-sm">
+			<ul class="list-group" *ngFor="let state of states">
+			  <li class="list-group-item custom-padding-list">
+			  	<div class="mr-auto fl">{{state.name}}</div> 
+			  	<button type="button" (click)="setStateID(state._id,state.name)" class="btn btn-danger btn-sm fr cp" data-toggle="modal" data-target="#exampleModal">
+			  		<i class="fa fa-trash" aria-hidden="true"></i>
+			  	</button>
+			  	<a class="btn btn-primary btn-sm fr mr15" routerLink="/state/{{state._id}}" role="button">
+			  		<i class="fa fa-pencil" aria-hidden="true"></i>
+			  	</a>
+			  	<div class="btn-group fr mr15">
+				  <button type="button" class="btn btn-secondary btn-sm  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    
+				  </button>
+				  <div class="dropdown-menu dropdown-menu-right">
+				    <a class="dropdown-item" href="#">Action</a>
+				    <a class="dropdown-item" href="#">Another action</a>
+				    <a class="dropdown-item" href="#">Something else here</a>
+				    <div class="dropdown-divider"></div>
+				    <a class="dropdown-item" href="#">Separated link</a>
+				  </div>
+				</div>
+
+
+
+			  </li>
+			</ul>
+	     </div>
+    </div>
+</div>
+
+<!-- Modal  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">!Delete State</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	Do you want to delete the state?<br/>
+        <span *ngIf="stateTitle;">
+        	<strong>{{stateTitle}}</strong>
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="deleteState()" data-dismiss="modal" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
